@@ -97,22 +97,3 @@ function main() {
 }
 
 window.addEventListener('load', main);
-
-let cameraFacingMode = 'environment'
-function switchCamera() {
- if (cameraFacingMode === 'environment') {
-  cameraFacingMode = 'user'
- }
-
- if (cameraFacingMode === 'user') {
-  cameraFacingMode = 'environment'
- }
-}
-
-const cameraBtn = document.getElementById('flipCameraBtn')
-cameraBtn.addEventListener('click', () => {
-  switchCamera()
-  JEELIZFACEFILTER.update_videoSettings({
-    'facingMode': cameraFacingMode
-  })
-})
