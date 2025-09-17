@@ -84,7 +84,7 @@ function init_threeScene(spec){
 function main(){
   JEELIZFACEFILTER.init({
     canvasId: 'jeeFaceFilterCanvas',
-    NNCPath: '../../../neuralNets/',
+    NNCPath: './neuralNets/',
     maxFacesDetected: SETTINGS.maxFaces,
 
     callbackReady: function(errCode,spec){
