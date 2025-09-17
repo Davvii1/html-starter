@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="content-language" content="en-EN" />
+
+  <title>JEELIZ FACEFILTER: THREE.JS MULTI FACE DETECTION DEMO</title>
+
+  <!-- INCLUDE JEELIZ FACEFILTER SCRIPT -->
+  <!-- <script src="../../../dist/jeelizFaceFilter.js"></script> -->
+
+  <!-- INCLUDE THREE.JS -->
+  <!-- <script src="../../../libs/three/v112/three.min.js"></script> -->
+
+  <!-- INCLUDE A THREE.JS HELPER -->
+  <!-- <script src="../../../helpers/JeelizThreeHelper.js"></script>
+  <script src="../../../libs/three/v112/GLTFLoader.js"></script> -->
+
+  <!-- JEELIZ FACEFILTER -->
+  <script src="https://cdn.jsdelivr.net/gh/jeeliz/jeelizFaceFilter/dist/jeelizFaceFilter.js"></script>
+
+  <!-- THREE.JS -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.112.1/build/three.min.js"></script>
+
+  <!-- GLTF LOADER (compatible version with Three.js r112) -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.112.1/examples/js/loaders/GLTFLoader.js"></script>
+
+  <!-- JEELIZ THREE HELPER (host this yourself if needed, not on a public CDN) -->
+  <script src="/JeelizThreeHelper.js"></script>
+
+  <!-- INCLUDE DEMO SCRIPT -->
+  <script src="/main.js"></script>
+
+  <!-- INCLUDE FORK ME ON GITHUB BANNER -->
+  <script src="/widget.js"></script>
+  <script>
+    window.addEventListener('load', function () {
+      const canvas = document.getElementById('jeeFaceFilterCanvas');
+
+      navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' } })
+        .then(stream => {
+          const videoTrack = stream.getVideoTracks()[0];
+          const settings = videoTrack.getSettings();
+          const aspectRatio = settings.width / settings.height;
+
+          if (window.innerWidth / window.innerHeight > aspectRatio) {
+            canvas.height = window.innerHeight;
+            canvas.width = window.innerHeight * aspectRatio;
+          } else {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerWidth / aspectRatio;
+          }
+
+          // Inicializar Jeeliz solo después de ajustar el canvas
+          main();
+        })
+        .catch(err => console.error('Error al acceder a la cámara:', err));
+    });
+
+  </script>
+  <link rel="stylesheet" href="/style.css" type="text/css" />
+</head>
+
+<body style="margin:0; overflow:hidden;">
+  <canvas id="jeeFaceFilterCanvas" style="display:block;"></canvas>
+</body>
+
+</html>
