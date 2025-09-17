@@ -3,7 +3,6 @@ const SETTINGS = { maxFaces: 4 };
 // texturas
 const textureLoader = new THREE.TextureLoader();
 const textureSombrero = textureLoader.load('./Sombreo_Base_color.png');
-const textureAOSombrero = textureLoader.load('./Sombreo_Mixed_AO.png');
 
 let THREECAMERA = null;
 
@@ -53,7 +52,6 @@ function init_threeScene(spec){
         if(child.name.toLowerCase().includes('mesh_0')){
             child.material = new THREE.MeshStandardMaterial({ 
               map: textureSombrero, 
-              aoMap: textureAOSombrero,
               color: 0x666666, 
               roughness: 0.7,
             });
