@@ -78,12 +78,31 @@ function init_threeScene(spec) {
   THREECAMERA = JeelizThreeHelper.create_camera();
 }
 
-// entry point
 function main() {
+  JeelizResizer.size_canvas({
+    canvasId: 'jeeFaceFilterCanvas',
+    isFullScreen: true,
+    isApplyCSS: true,
+    callback: start,
+    onResize: function () {
+      JeelizThreeHelper.update_camera(THREECAMERA);
+    }
+  })
+}
+
+// entry point
+function start() {
   JEELIZFACEFILTER.init({
     canvasId: 'jeeFaceFilterCanvas',
     NNCPath: '/neuralNets/',
     maxFacesDetected: SETTINGS.maxFaces,
+    videoSettings: {
+      'idealWidth': 1280,
+      'idealHeight': 800,
+      'maxWidth': 1920,
+      'maxHeight': 1920
+    },
+    followZRot: true,
 
     callbackReady: function (errCode, spec) {
       if (errCode) { console.log('ERROR =', errCode); return; }
