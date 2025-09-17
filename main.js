@@ -2,7 +2,7 @@ const SETTINGS = { maxFaces: 4 };
 
 // texturas
 const textureLoader = new THREE.TextureLoader();
-const textureSombrero = textureLoader.load('./Sombreo_Base_color.png');
+const textureSombrero = textureLoader.load('/Sombreo_Base_color.png');
 
 let THREECAMERA = null;
 
@@ -36,7 +36,7 @@ function init_threeScene(spec){
 
   // cargar GLB
   const loader = new THREE.GLTFLoader();
-  loader.load('./LaLeyendaCabeza2.glb', function(gltf){
+  loader.load('/LaLeyendaCabeza2.glb', function(gltf){
     const originalModel = gltf.scene;
     originalModel.scale.set(0.22,0.22,0.22);
     originalModel.position.set(0,-0.9,0);
@@ -82,7 +82,7 @@ function init_threeScene(spec){
 function main(){
   JEELIZFACEFILTER.init({
     canvasId: 'jeeFaceFilterCanvas',
-    NNCPath: './neuralNets/',
+    NNCPath: '/neuralNets/',
     maxFacesDetected: SETTINGS.maxFaces,
 
     callbackReady: function(errCode,spec){
