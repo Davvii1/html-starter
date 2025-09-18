@@ -38,7 +38,7 @@ function init_threeScene(spec) {
   const loader = new THREE.GLTFLoader();
   loader.load('/LaLeyendaCabeza2.glb', function (gltf) {
     const originalModel = gltf.scene;
-    originalModel.scale.set(0.22, 0.22, 0.22);
+    originalModel.scale.set(0.25, 0.25, 0.25);
     originalModel.position.set(0, -0.9, 0);
     // originalModel.rotation.y = Math.PI; // Rota 180 grados en Y (ajusta el valor según lo que necesites)
     // --- LISTAR TODOS LOS MESHES ---
