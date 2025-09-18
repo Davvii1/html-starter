@@ -108,7 +108,8 @@
     cameraBtn.addEventListener('click', () => {
       switchCamera()
       JEELIZFACEFILTER.update_videoSettings({
-        'facingMode': cameraFacingMode
+        'facingMode': cameraFacingMode,
+        'flipX': cameraFacingMode === 'environment' ? true : false
       })
     })
   </script>
