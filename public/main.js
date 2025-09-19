@@ -94,7 +94,7 @@ function main() {
 function start() {
   JEELIZFACEFILTER.init({
     canvasId: 'jeeFaceFilterCanvas',
-    NNCPath: '/neuralNets/',
+    NNCPath: '/neuralNets/NN_4EXPR_1.json',
     maxFacesDetected: SETTINGS.maxFaces,
     videoSettings: {
       'idealWidth': 1280,
